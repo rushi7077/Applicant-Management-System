@@ -19,6 +19,8 @@ public class Applicant {
 
     private String status;
 
+    private String resume;
+
     public Long getId() {
         return id;
     }
