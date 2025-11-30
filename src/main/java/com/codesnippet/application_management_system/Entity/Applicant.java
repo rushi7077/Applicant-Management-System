@@ -1,9 +1,6 @@
 package com.codesnippet.application_management_system.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Applicant {
@@ -19,6 +16,7 @@ public class Applicant {
 
     private String status;
 
+    @OneToOne(mappedBy = "applicant",cascade = CascadeType.ALL)
     private String resume;
 
     public Long getId() {

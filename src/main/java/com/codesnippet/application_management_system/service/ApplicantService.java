@@ -1,6 +1,7 @@
 package com.codesnippet.application_management_system.service;
 
 import com.codesnippet.application_management_system.Entity.Applicant;
+import com.codesnippet.application_management_system.Entity.Resume;
 import com.codesnippet.application_management_system.repositories.ApplicantCrudRepository;
 import com.codesnippet.application_management_system.repositories.ApplicantJpaRepository;
 import com.codesnippet.application_management_system.repositories.ApplicantPagingAndSortingRepository;
@@ -29,7 +30,8 @@ public class ApplicantService {
         return applicantJpaRepository.findApplicantsByPartialName(name);
     }
     public Applicant saveApplicantCrud(Applicant applicant) {
-       return applicantCrudRepository.save(applicant);
+        Resume resume = applicant.getResume();
+        return applicantCrudRepository.save(applicant);
     }
 
     public Iterable<Applicant> getApplicantsWithPagination(int page, int size) {
