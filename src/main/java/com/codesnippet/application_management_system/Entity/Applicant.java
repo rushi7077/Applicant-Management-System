@@ -60,4 +60,12 @@ public class Applicant {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getResume() {
+        return resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume;
+    }
 }
