@@ -1,5 +1,6 @@
 package com.codesnippet.application_management_system.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,7 +18,7 @@ public class Applicant {
     private String status;
 
     @OneToOne(mappedBy = "applicant",cascade = CascadeType.ALL)
-    private String resume;
+    private Resume resume;
 
     public Long getId() {
         return id;
@@ -59,11 +60,11 @@ public class Applicant {
         this.status = status;
     }
 
-    public String getResume() {
+    public Resume getResume() {
         return resume;
     }
 
-    public void setResume(String resume) {
+    public void setResume(Resume resume) {
         this.resume = resume;
     }
 }

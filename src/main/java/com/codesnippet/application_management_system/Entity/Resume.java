@@ -1,5 +1,6 @@
 package com.codesnippet.application_management_system.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,7 @@ public class Resume {
 
     @OneToOne
     @JoinColumn(name = "applicantId",nullable = false)
+    @JsonIgnore
     private Applicant applicant;
 
 
