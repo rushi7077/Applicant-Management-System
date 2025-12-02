@@ -17,6 +17,8 @@ public class Applicant {
 
     private String status;
 
+    @OneToOne(mappedBy = "applicant",cascade = CascadeType.ALL)
+    private Resume resume;
 
     public Long getId() {
         return id;
