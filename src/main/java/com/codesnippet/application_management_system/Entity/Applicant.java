@@ -3,6 +3,9 @@ package com.codesnippet.application_management_system.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Applicant {
     @Id
@@ -19,6 +22,9 @@ public class Applicant {
 
     @OneToOne(mappedBy = "applicant",cascade = CascadeType.ALL)
     private Resume resume;
+
+    @OneToMany
+    private List<Application> applications = new ArrayList<>();
 
     public Long getId() {
         return id;

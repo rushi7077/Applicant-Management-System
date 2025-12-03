@@ -13,7 +13,7 @@ public class Application {
 
     private String position;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "applicantId", nullable = false)
     private Applicant applicant;
 }
