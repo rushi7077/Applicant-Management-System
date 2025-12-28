@@ -27,7 +27,9 @@ public class ApplicationService {
              application.setApplicant(applicant);
              return applicationRepository.save(application);
          }
-
+         else{
+             throw new RuntimeException("Applicant not found with this id " + applicantId);
+         }
 
      }
 
