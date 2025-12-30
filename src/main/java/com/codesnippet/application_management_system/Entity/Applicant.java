@@ -90,4 +90,12 @@ public class Applicant {
     public void setApplications(List<Application> applications) {
         this.applications = applications;
     }
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
 }
