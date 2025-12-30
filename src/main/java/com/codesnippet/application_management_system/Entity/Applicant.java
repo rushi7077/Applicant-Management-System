@@ -27,6 +27,14 @@ public class Applicant {
     @OneToMany(mappedBy = "applicant",cascade = CascadeType.ALL)
     private List<Application> applications = new ArrayList<>();
 
+    @ManyToMany
+    @JoinTable(
+            name = "applicants_jobs",
+            joinColumns = @JoinColumn(name = "applicantId"),
+            inverseJoinColumns =@JoinColumn(name = "jobId")
+    )
+    private List<Job> jobs = new ArrayList<>();
+
     public Long getId() {
         return id;
     }
