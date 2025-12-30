@@ -23,7 +23,8 @@ public class Applicant {
     @OneToOne(mappedBy = "applicant",cascade = CascadeType.ALL)
     private Resume resume;
 
-    @OneToMany
+
+    @OneToMany(mappedBy = "applicant",cascade = CascadeType.ALL)
     private List<Application> applications = new ArrayList<>();
 
     public Long getId() {
@@ -72,5 +73,13 @@ public class Applicant {
 
     public void setResume(Resume resume) {
         this.resume = resume;
+    }
+
+    public List<Application> getApplications() {
+        return applications;
+    }
+
+    public void setApplications(List<Application> applications) {
+        this.applications = applications;
     }
 }

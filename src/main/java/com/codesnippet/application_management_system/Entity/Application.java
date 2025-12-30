@@ -1,5 +1,6 @@
 package com.codesnippet.application_management_system.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,7 +16,9 @@ public class Application {
 
     @ManyToOne
     @JoinColumn(name = "applicantId", nullable = false)
+    @JsonIgnore
     private Applicant applicant;
+
 
     public String getStatus() {
         return status;

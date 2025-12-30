@@ -1,6 +1,7 @@
 package com.codesnippet.application_management_system.service;
 
 import com.codesnippet.application_management_system.Entity.Applicant;
+import com.codesnippet.application_management_system.Entity.Application;
 import com.codesnippet.application_management_system.Entity.Resume;
 import com.codesnippet.application_management_system.repositories.ApplicantCrudRepository;
 import com.codesnippet.application_management_system.repositories.ApplicantJpaRepository;
@@ -44,9 +45,16 @@ public class ApplicantService {
     // 🔹 Save applicant + auto-manage One-to-One Resume relation
     public Applicant saveApplicantCrud(Applicant applicant) {
         Resume resume = applicant.getResume();
+        List <Application> applications = applicant.getApplications();
         if (resume != null) {
             resume.setApplicant(applicant); // maintain bidirectional relation
         }
+        if(applications != null){
+            for(Application application : applications){
+                application.setApplicant(applicant);
+            }
+        }
+
         return applicantCrudRepository.save(applicant);
     }
 
