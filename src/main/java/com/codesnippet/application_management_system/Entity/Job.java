@@ -1,5 +1,6 @@
 package com.codesnippet.application_management_system.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Job {
     private String description;
 
     @ManyToMany(mappedBy = "jobs")
+    @JsonIgnore
     private List<Applicant> applicants=new ArrayList<>();
 
     public Long getId() {

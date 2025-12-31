@@ -22,6 +22,7 @@ public class ApplicantController {
     }
     @PostMapping
     public Applicant saveApplicant(@RequestBody Applicant applicant) {
+        System.out.println("Rushi Baravkar");
         return applicantService.saveApplicantCrud(applicant);
     }
 

@@ -6,6 +6,7 @@ import com.codesnippet.application_management_system.repositories.ApplicantJpaRe
 import com.codesnippet.application_management_system.repositories.JobRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,6 +22,15 @@ public class JobService {
 
     public Job createJob(Job job){
         return jobRepository.save(job);
+    }
+
+    public List<Job> getAllJobs(){
+        return jobRepository.findAll();
+    }
+
+    public Job getJobById(Long id){
+        return jobRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Job not Found"));
     }
 
     public Applicant addJobToApplicant (Long applicantId,Long jobId){
